@@ -1,0 +1,19 @@
+package CodeChefJulyLong2020;
+
+import java.util.Scanner;
+
+public class ChefAndString 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Start");
+		Scanner s = new Scanner(System.in);
+		int t = s.nextInt();
+		while(t-->0)
+		{
+			
+		}
+		s.close();
+	}
+
+}

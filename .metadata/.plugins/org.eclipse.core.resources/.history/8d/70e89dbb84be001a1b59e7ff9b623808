@@ -1,0 +1,14 @@
+package CodeChefJulyLong2020;
+
+import java.util.Scanner;
+
+public class ChefAndCardGame 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Start...");
+		Scanner s = new Scanner(System.in);
+		s.close();
+	}
+
+}
