@@ -2,8 +2,6 @@ package CodeChefJulyLong2020;
 
 import java.util.Scanner;
 
-// https://www.codechef.com/JULY20B/problems/CRDGAME
-
 public class ChefAndCardGame 
 {
 	static int getSumOfDigits(int number)

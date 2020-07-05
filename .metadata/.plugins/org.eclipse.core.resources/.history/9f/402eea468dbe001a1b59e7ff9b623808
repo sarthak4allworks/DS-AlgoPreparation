@@ -2,8 +2,6 @@ package CodeChefJulyLong2020;
 
 import java.util.Scanner;
 
-//https://www.codechef.com/JULY20B/problems/CHEFSTR1
-
 public class ChefAndString 
 {
 	public static void main(String[] args) 
