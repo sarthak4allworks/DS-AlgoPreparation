@@ -1,0 +1,14 @@
+package ProjectEulerProblems;
+
+//https://projecteuler.net/problem=6
+public class Problem6 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Start...");
+		int sum = 500*1001;	// sum of first 1000 natural numbers
+		int sumOfSqures = 1;
+		for(int i=1 ; i<)
+	}
+
+}

@@ -1,0 +1,26 @@
+package ProjectEulerProblems;
+
+//https://projecteuler.net/problem=3
+public class Problem3 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Start...");
+		long num = 600851475143L;
+		
+	}
+
+	private static boolean prime(double res) 
+	{
+		long num = (long)res;
+		if(num<=1) return false;
+		if(num == 2 || num == 3) return true;
+		if(num%2==0 || num%3 == 0) return false;
+		for(int i=5 ; i*i<=num ; i+=6)
+		{
+			if(num%i == 0 || num%(i+2) == 0) return false;
+		}
+		return true;
+	}
+
+}

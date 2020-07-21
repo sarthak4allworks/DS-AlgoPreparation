@@ -1,0 +1,22 @@
+package ProjectEulerProblems;
+
+// https://projecteuler.net/problem=5
+public class Problem5 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Start...");
+		for(int i=20 ; i<Integer.MAX_VALUE ; i+=20)
+		{
+			bool flag = true;
+			for(int j=19 ; j>=2 ; j--)
+			{
+				if(i%j != 0)
+				{
+					break;
+				}
+			}
+		}
+	}
+
+}

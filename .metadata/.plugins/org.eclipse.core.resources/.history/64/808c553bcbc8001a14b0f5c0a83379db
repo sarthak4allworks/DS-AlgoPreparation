@@ -1,0 +1,26 @@
+package ProjectEulerProblems;
+
+import java.math.BigInteger;
+
+//https://projecteuler.net/problem=6
+public class Problem6 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Start...");
+		Scanner s = new Scanner(System.in);
+		BigInteger num = new BigInteger("1");
+		num = new BigInteger("500").multiply(new BigInteger("1001"));
+		System.out.println(num);
+		num = num.multiply(num);
+		System.out.println(num);
+		BigInteger num1 = new BigInteger("1");
+		for(int i=2 ; i<1001 ; i++)
+		{
+			num1 = num1.add(BigInteger.valueOf(i).multiply(BigInteger.valueOf(i)));
+		}
+		System.out.println(num1);
+		System.out.println(num1.subtract(num));
+	}
+
+}

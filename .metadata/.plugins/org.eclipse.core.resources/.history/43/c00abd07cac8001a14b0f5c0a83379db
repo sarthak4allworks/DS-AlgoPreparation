@@ -1,0 +1,29 @@
+package ProjectEulerProblems;
+
+import java.math.BigInteger;
+
+//https://projecteuler.net/problem=6
+public class Problem6 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Start...");
+		int sum = 500*1001;	// sum of first 1000 natural numbers
+		System.out.println(sum);
+		long sumsqure = sum*sum;
+		System.out.println(sumsqure);
+		int sumOfSqures = 1;
+		for(int i=2 ; i<1001 ; i++)
+		{
+			sumOfSqures += i*i;
+		}
+		System.out.println(sumOfSqures);
+		System.out.println(sumsqure-sumOfSqures);
+		System.out.println(sum*sum-sumOfSqures);
+		
+		BigInteger num = new BigInteger("1");
+		num = new BigInteger("500").multiply(new BigInteger("1001"));
+		num = num.multiply(num);
+	}
+
+}

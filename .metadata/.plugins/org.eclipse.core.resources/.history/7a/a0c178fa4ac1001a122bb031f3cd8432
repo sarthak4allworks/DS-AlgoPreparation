@@ -1,0 +1,31 @@
+package ProjectEulerProblems;
+
+// https://projecteuler.net/problem=4
+public class Problem4
+{
+	@SuppressWarnings("unused")
+	public static void main(String[] args)
+	{
+		System.out.println("Start...");
+		int res = 0;
+		for(int i=999 ; i>99 ; i--)
+		{
+			for(int j=999 ; j>99 ; j--)
+			{
+				if(checkPalindrom(i*j))
+				{
+					res = i*j;
+					break result;
+				}
+			}
+		}
+		System.out.println(res);
+	}
+
+	private static boolean checkPalindrom(int i) 
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

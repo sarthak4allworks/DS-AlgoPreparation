@@ -1,0 +1,21 @@
+package ProjectEulerProblems;
+
+import java.util.Scanner;
+
+//https://projecteuler.net/problem=2
+public class Problem2 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Start...");
+		Scanner s = new Scanner(System.in);
+		int total = 2;
+		int num = s.nextInt();
+		int num1 = 1;
+		int num2 =2;
+		
+		System.out.println(total);
+		s.close();
+	}
+
+}

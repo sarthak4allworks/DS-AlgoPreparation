@@ -1,0 +1,38 @@
+package ProjectEulerProblems;
+
+//https://projecteuler.net/problem=3
+public class Problem3 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Start...");
+		long num = 600851475143L;
+		long result = 0;
+		int i = 1;
+		while(true)
+		{
+			double res = (num*1.0)/i;
+			i++;
+			if(Math.abs(res)-res == 0)
+			{
+				if(prime(res))
+				{
+					result = (long) res;
+					break;
+				}
+			}
+			break;
+		}
+		System.out.println(result);
+	}
+
+	private static boolean prime(double res) 
+	{
+		long num = (long)res;
+		if(num<=1) return false;
+		if(num == 2 || num == 3) return 3;
+		if(num%2==0 || num%3 == 0) return false;
+		return false;
+	}
+
+}

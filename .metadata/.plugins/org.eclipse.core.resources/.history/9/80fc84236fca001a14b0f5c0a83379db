@@ -1,0 +1,35 @@
+package ProjectEulerProblems;
+
+// https://projecteuler.net/problem=7
+public class Problem7 
+{
+	public static void main(String[] args) 
+	{
+		boolean[] arr = new boolean[Integer.MAX_VALUE];
+		for(int i=0 ; i<Integer.MAX_VALUE ; i++)
+		{
+			arr[i] = false;
+		}
+		int count = 0;
+		int number = 2;
+		while(count != 10001)
+		{
+			if(!arr[number])
+			{
+				boolean isBoolean = checkPrime(number, arr);
+				if(isBoolean) 
+				{
+					count++;	
+				}
+			}
+			number++;
+		}
+	}
+
+	private static boolean checkPrime(int number, boolean[] arr) 
+	{
+		arr[number] = true;
+		return true;
+	}
+
+}

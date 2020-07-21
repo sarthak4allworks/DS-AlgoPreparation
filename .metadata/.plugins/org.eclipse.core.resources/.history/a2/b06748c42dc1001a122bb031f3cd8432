@@ -1,0 +1,34 @@
+package ProjectEulerProblems;
+
+import java.util.Scanner;
+
+//https://projecteuler.net/problem=2
+public class Problem2 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Start...");
+		Scanner s = new Scanner(System.in);
+		int total = 0;
+		int num = s.nextInt();
+		total = ReturnTotal(num);
+		System.out.println(total);
+		s.close();
+	}
+
+	private static int ReturnTotal(int num) 
+	{
+		int total = 2;
+		int num1 = 1;
+		int num2 = 2;
+		while(num2 <= num)
+		{
+			if((num1+num2) %2 == 0)
+			{
+				total += num1+num2;			
+			}
+		}
+		return 0;
+	}
+
+}

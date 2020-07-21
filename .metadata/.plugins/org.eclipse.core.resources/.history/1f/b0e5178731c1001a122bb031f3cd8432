@@ -1,0 +1,18 @@
+package ProjectEulerProblems;
+
+//https://projecteuler.net/problem=3
+public class Problem3 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Start...");
+		long num = 600851475143L;
+		while(true)
+		{
+			
+		}
+		long result = 0;
+		System.out.println(result);
+	}
+
+}
