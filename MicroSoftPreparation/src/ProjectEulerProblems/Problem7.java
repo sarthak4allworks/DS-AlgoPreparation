@@ -16,14 +16,14 @@ public class Problem7
 		int number = 2;
 		while(count != 10001)
 		{
-			if(arr[number] == true)
-			{
-				count++;
-				for(int i=2*number ; i<100000000 ; i+=number)
-				{
-					arr[i] = false;
-				}
-			}
+//			if(arr[number] == true)
+//			{
+//				count++;
+//				for(int i=2*number ; i<100000000 ; i+=number)
+//				{
+//					arr[i] = false;
+//				}
+//			}
 			number++;
 			if(number >= 100000000)
 			{
