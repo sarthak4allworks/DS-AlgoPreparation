@@ -48,9 +48,10 @@ public class AllElementsIn2BinarySearchTree
 			{
 				root2 = abst.InsertNode(root2, s.nextInt());
 			}
-			//printTree(root1);
+			printTree(root1);
 //			System.out.println();
-			//printTree(root2);
+			printTree(root2);
+			System.out.println();
 			List<Integer> list = getAllElements(root1, root2);
 			//System.out.println(list.size());
 			for(Integer i: list)
