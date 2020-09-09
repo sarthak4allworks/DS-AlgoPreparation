@@ -83,11 +83,11 @@ public class ImageOverlap
 //						}
 //					}
 //				}
-//				result = c;
-//			}
-//		}
-//		if(!flag)
-//		{
+//		result = c;
+//	}
+//}
+//if(!flag)
+//{
 		else
 		{
 			for(int i=0 ; i<size ; i++)
