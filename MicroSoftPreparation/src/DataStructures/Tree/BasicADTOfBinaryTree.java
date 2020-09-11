@@ -4,24 +4,6 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Stack;
 
-class TreeNode
-{
-	int data;
-	TreeNode left;
-	TreeNode right;
-	TreeNode(){}
-	TreeNode(int data)
-	{
-		this.data = data;
-	}
-	TreeNode(int data, TreeNode left, TreeNode right)
-	{
-		this.data = data;
-		this.left = left;
-		this.right= right;
-	}
-}
-
 public class BasicADTOfBinaryTree 
 {
 	public static void main(String[] args) 
@@ -56,7 +38,7 @@ public class BasicADTOfBinaryTree
 		printInOrderIterative(root);
 	}
 
-	private static void printInOrderIterative(TreeNode root) // 4 2 5 1 6 3 7
+	public static void printInOrderIterative(TreeNode root) // 4 2 5 1 6 3 7
 	{
 		if(root!=null)
 		{
@@ -79,7 +61,7 @@ public class BasicADTOfBinaryTree
 		}
 	}
 
-	private static void printPostOrderIterative(TreeNode root) // 4 5 2 6 7 3 1
+	public static void printPostOrderIterative(TreeNode root) // 4 5 2 6 7 3 1
 	{
 		if(root != null)
 		{
@@ -111,7 +93,7 @@ public class BasicADTOfBinaryTree
 		}
 	}
 
-	private static void printPreOrderIterative(TreeNode root) // 1 2 4 5 3 4 7 
+	public static void printPreOrderIterative(TreeNode root) // 1 2 4 5 3 4 7 
 	{
 		if(root!=null)
 		{
@@ -134,7 +116,7 @@ public class BasicADTOfBinaryTree
 		}
 	}
 
-	private static void printLevelOrderRecursive(TreeNode root) //1 2 3 4 5 6 7
+	public static void printLevelOrderRecursive(TreeNode root) //1 2 3 4 5 6 7
 	{
 		if(root != null)
 		{
@@ -157,7 +139,7 @@ public class BasicADTOfBinaryTree
 		}
 	}
 
-	private static void printInorderRecursive(TreeNode root) // 4 2 5 1 6 3 7
+	public static void printInorderRecursive(TreeNode root) // 4 2 5 1 6 3 7
 	{
 		if(root != null)
 		{
@@ -167,7 +149,7 @@ public class BasicADTOfBinaryTree
 		}
 	}
 
-	private static void printPostOrderRecursive(TreeNode root) // 4 5 2 6 7 3 1
+	public static void printPostOrderRecursive(TreeNode root) // 4 5 2 6 7 3 1
 	{
 		if(root != null)
 		{
@@ -177,7 +159,7 @@ public class BasicADTOfBinaryTree
 		}
 	} 
 
-	private static void printPreOrderRecursive(TreeNode root) // 1 2 4 5 3 6 7  
+	public static void printPreOrderRecursive(TreeNode root) // 1 2 4 5 3 6 7  
 	{
 		if(root != null)
 		{
