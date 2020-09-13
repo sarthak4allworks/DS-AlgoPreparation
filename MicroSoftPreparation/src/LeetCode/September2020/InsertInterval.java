@@ -160,14 +160,14 @@ public class InsertInterval
 					index = i+1;
 				}
 			}
-//			for(int i=index ; i<n ; i++) 
-//			{
-//				ans.add(list.get(i));
-//			}
-			for(Interval a: ans)
+			for(int i=index ; i<n ; i++) 
 			{
-				System.out.println(a.start+" "+a.end);
+				ans.add(list.get(i));
 			}
+//			for(Interval a: ans)
+//			{
+//				System.out.println(a.start+" "+a.end);
+//			}
 			Stack<Interval> stack = new Stack<>();
 			stack.push(ans.get(0));
 			for(int i=1 ; i<ans.size() ; i++)
