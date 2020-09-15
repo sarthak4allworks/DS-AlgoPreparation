@@ -4,14 +4,17 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="LeetCode.September2020.TreeNode"/>
-<fullyQualifiedTypeName name="java.util.Deque"/>
 <fullyQualifiedTypeName name="DataStructures.Tree.TreeNode"/>
 <fullyQualifiedTypeName name="java.util.Queue"/>
-<fullyQualifiedTypeName name="DataStructures.Tree.BasicADTOfBinaryTree"/>
-<fullyQualifiedTypeName name="DataStructures.Tree.InsertingAnElementInBinaryTree"/>
-<fullyQualifiedTypeName name="java.util.ArrayDeque"/>
 <fullyQualifiedTypeName name="LeetCode.SingleLinkListNode"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="DataStructures.Tree.InsertingAnElementInBinaryTree"/>
+<fullyQualifiedTypeName name="DataStructures.Tree.BasicADTOfBinaryTree"/>
+<fullyQualifiedTypeName name="java.util.Stack"/>
+<fullyQualifiedTypeName name="java.util.Deque"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ArrayBlockingQueue"/>
+<fullyQualifiedTypeName name="DataStructures.Tree.DeletingElementFromTheBinaryTree"/>
+<fullyQualifiedTypeName name="java.util.ArrayDeque"/>
 </qualifiedTypeNameHistroy>
