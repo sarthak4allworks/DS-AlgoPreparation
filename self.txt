@@ -1,0 +1,16 @@
+Importent Interview Questions:
+1- Storage class in c => https://www.geeksforgeeks.org/storage-classes-in-c/      auto, static, extern, register
+2- What are the different kinds of IPC in OS => (Shared memory and Message passing) https://www.geeksforgeeks.org/inter-process-communication-ipc/
+3- is Virtual memory required even if you have only one process in cpu running all the time => q10
+4- define critical section in 3 words => code in execution
+5- Binary search tree
+6- what happens when you type google.com in browser => https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a
+7- Level order travarsal recursive => done
+8- Basic networking questions
+9- What happens when you deference NULL pointer => https://stackoverflow.com/questions/4007268/what-exactly-is-meant-by-de-referencing-a-null-pointer (no error is coming in c, but in c++ NullPointerException)
+10- What is virtual memory => (RAM + Hard disc storage) https://www.geeksforgeeks.org/virtual-memory-in-operating-system/#:~:text=Virtual%20Memory%20is%20a%20storage,were%20part%20of%20main%20memory.&text=It%20maps%20memory%20addresses%20used,physical%20addresses%20in%20computer%20memory.
+11- write all the permutations of the string => done
+12- What is the benifit of subnetting => 
+
+
+crack the coding interview book

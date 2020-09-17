@@ -36,6 +36,34 @@ public class BasicADTOfBinaryTree
 		System.out.println();
 		System.out.print("Inorder Iterative => ");
 		printInOrderIterative(root);
+		System.out.println();
+		System.out.print("Levelorder Iterative => ");
+		printLevelOrderIterative(root);
+		System.out.println();
+		// printAtTheGivenLevel(root, 3);
+	}
+
+	public static void printLevelOrderIterative(TreeNode root) //1 2 3 4 5 6 7
+	{
+		if(root != null)
+		{
+			Deque<TreeNode> queue = new ArrayDeque<>();
+			queue.add(root);
+			TreeNode temp = root;
+			while(!queue.isEmpty())
+			{
+				temp = queue.pollFirst();
+				System.out.print(temp.data+" ");
+				if(temp.left!=null)
+				{
+					queue.add(temp.left);
+				}
+				if(temp.right!=null)
+				{
+					queue.add(temp.right);
+				}
+			}
+		}
 	}
 
 	public static void printInOrderIterative(TreeNode root) // 4 2 5 1 6 3 7
@@ -118,24 +146,27 @@ public class BasicADTOfBinaryTree
 
 	public static void printLevelOrderRecursive(TreeNode root) //1 2 3 4 5 6 7
 	{
-		if(root != null)
+		int height = FindingTheHeightOfBinaryTree.HeightOfBinaryTreeRecursively(root);
+		for(int i=1 ; i<=height ; i++)
 		{
-			Deque<TreeNode> queue = new ArrayDeque<>();
-			queue.add(root);
-			TreeNode temp = root;
-			while(!queue.isEmpty())
-			{
-				temp = queue.pollFirst();
-				System.out.print(temp.data+" ");
-				if(temp.left!=null)
-				{
-					queue.add(temp.left);
-				}
-				if(temp.right!=null)
-				{
-					queue.add(temp.right);
-				}
-			}
+			printAtTheGivenLevel(root, i);
+		}
+	}
+
+	public static void printAtTheGivenLevel(TreeNode root, int level)
+	{
+		if(root == null)
+		{
+			return;
+		}
+		if(level == 1)
+		{
+			System.out.print(root.data+" ");
+		}
+		else
+		{
+			printAtTheGivenLevel(root.left, level-1);
+			printAtTheGivenLevel(root.right, level-1);
 		}
 	}
 
