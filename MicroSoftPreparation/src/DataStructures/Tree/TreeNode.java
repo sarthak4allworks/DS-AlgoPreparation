@@ -3,8 +3,8 @@ package DataStructures.Tree;
 public class TreeNode 
 {
 	int data;
-	TreeNode left;
-	TreeNode right;
+	public TreeNode left;
+	public TreeNode right;
 	TreeNode(){}
 	TreeNode(int data)
 	{
