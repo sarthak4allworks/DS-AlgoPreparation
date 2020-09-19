@@ -17,7 +17,7 @@ crack the coding interview book
 
 1- Number of island Problem graph => Done
 2- Reverse stack using recursion => Done
-3- LRU (Lease Recently used) Cache implementation (Leed Code)
+3- LRU (Lease Recently used) Cache implementation (Leed Code) => Done
 4- KMP algorithmn (Find substring in the given text) => Done
 5- LCS algorithm (Longest Common Subsequence) => done
 6- Start System Design
