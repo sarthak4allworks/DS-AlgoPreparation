@@ -25,7 +25,11 @@ public class BasicADTOfBinarySearchTree
 					System.out.print("Input the value to be inserted: ");
 					int data = s.nextInt();
 					root = InsertNodeRecursive(root, data);
+					System.out.print("Level order traversal is: ");
 					PrintLevelOrderTraversal(root);
+					System.out.print("Inorder Traversal is: ");
+					PrintInorderTraversal(root);
+					System.out.println();
 					break;
 				case 2:
 					System.out.print("Input the value to be deleted: ");
@@ -38,6 +42,16 @@ public class BasicADTOfBinarySearchTree
 			}
 		}
 		s.close();
+	}
+
+	public static void PrintInorderTraversal(BinarySearchTreeNode root) 
+	{
+		if(root != null)
+		{
+			PrintInorderTraversal(root.left);
+			System.out.print(root.data+" ");
+			PrintInorderTraversal(root.right);
+		}	
 	}
 
 	public static void PrintLevelOrderTraversal(BinarySearchTreeNode root) 
