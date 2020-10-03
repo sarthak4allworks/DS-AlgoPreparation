@@ -1,8 +1,8 @@
 package LeetCode.Octber2020;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeSet;
 
 // https://leetcode.com/explore/challenge/card/october-leetcoding-challenge/559/week-1-october-1st-october-7th/3482/
 public class KDiffPairsInArray 
@@ -29,32 +29,57 @@ public class KDiffPairsInArray
 	private static int findPairs(int[] nums, int k)
 	{
 		int count = 0;
-		if(k == 0)
+		// Solution 1
+//		if(k == 0)
+//		{
+//			Arrays.sort(nums);
+//			for(int i=0 ; i<nums.length-1 ;)
+//			{
+//				if(nums[i] == nums[i+1])
+//				{
+//					count++;
+//				}
+//				while((i+1) < nums.length && nums[i] == nums[i+1])
+//				{
+//					i++;
+//				}
+//				i++;
+//			}
+//		}
+//		else
+//		{
+//			TreeSet<Integer> set = new TreeSet<>();
+//			for(int num: nums)
+//			{
+//				set.add(num);
+//			}
+//			for(int num: set)
+//			{
+//				if(set.contains(num+k))
+//				{
+//					count++;
+//				}
+//			}
+//		}
+		
+		// Solution-2
+		Map<Integer, Integer> map = new HashMap<>();
+		for(int num: nums)
 		{
-			Arrays.sort(nums);
-			for(int i=0 ; i<nums.length-1 ;)
+			map.put(num, map.getOrDefault(num, 0)+1);
+		}
+		for(int key: map.keySet())
+		{
+			if(k == 0)
 			{
-				if(nums[i] == nums[i+1])
+				if(map.get(key) > 1)
 				{
 					count++;
 				}
-				while((i+1) < nums.length && nums[i] == nums[i+1])
-				{
-					i++;
-				}
-				i++;
 			}
-		}
-		else
-		{
-			TreeSet<Integer> set = new TreeSet<>();
-			for(int num: nums)
+			else
 			{
-				set.add(num);
-			}
-			for(int num: set)
-			{
-				if(set.contains(num+k))
+				if(map.containsKey(key+k))
 				{
 					count++;
 				}
