@@ -4,24 +4,6 @@ import java.util.Scanner;
 
 //https://leetcode.com/explore/challenge/card/october-leetcoding-challenge/559/week-1-october-1st-october-7th/3485/
 
-class TreeNode
-{
-	int val;
-	TreeNode left;
-	TreeNode right;
-	TreeNode(){}
-	TreeNode(int val)
-	{
-		this.val = val;
-	}
-	TreeNode(int val, TreeNode left, TreeNode right)
-	{
-		this.val = val;
-		this.left = left;
-		this.right = right;
-	}
-}
-
 public class InsertIntoBinarySearchTree 
 {
 	public static void main(String[] args)
@@ -45,7 +27,7 @@ public class InsertIntoBinarySearchTree
 		s.close();
 	}
 
-	private static void PrintInorderTree(TreeNode root) 
+	public static void PrintInorderTree(TreeNode root) 
 	{
 		if(root != null)
 		{
@@ -55,7 +37,7 @@ public class InsertIntoBinarySearchTree
 		}
 	}
 
-	private static TreeNode insertIntoBST(TreeNode root, int val)
+	public static TreeNode insertIntoBST(TreeNode root, int val)
 	{
 		if(root == null)
 		{
