@@ -1,0 +1,349 @@
+// Colony Tour.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include "pch.h"
+#include <iostream>
+using namespace std;
+#include<map>
+#include<vector>
+#include<string>
+
+class Flight
+{
+public:
+
+	//Flight Details
+	string flightName;
+	int price;
+	int minimumCutomers;
+
+	Flight(string flightName, int price, int minimumCutomers) {
+		this->flightName = flightName;
+		this->price = price;
+		this->minimumCutomers = minimumCutomers;
+	}
+
+	string getFlightName()
+	{
+		return this->flightName;
+	}
+	int getPrice()
+	{
+		return this->price;
+	}
+};
+
+class Colony
+{
+public:
+	//Colony Details
+	string colonyName;
+	map<string, Colony*> colonyMap;
+	map<string, vector<Flight*>> connectingColony;
+	Colony()
+	{
+
+	}
+
+	Colony(string cityName) {
+		this->colonyName = cityName;
+	}
+
+	string getColonyName() {
+		return this->colonyName;
+	}
+
+	void setColonyName(string name) {
+		this->colonyName = name;
+	}
+
+	//Add Destination Colony to Source List
+	void connectColony(Flight *flight, Colony *destcolony) {
+		if (colonyMap.find((*destcolony).getColonyName()) == colonyMap.end()) {
+			vector<Flight*> tmpflights;
+
+			tmpflights.push_back(flight);
+			this->colonyMap[(*destcolony).colonyName] = destcolony;
+			this->connectingColony[(*destcolony).colonyName] = tmpflights;
+		}
+		else {
+			connectingColony[(*destcolony).colonyName].push_back(flight);
+		}
+	}
+};
+
+class Map
+{
+public:
+	map <string, Colony*> colonyMap;
+	map<string, int> visColony;
+	int minPrice = INT_MAX;
+	string finalResult;
+
+	void dfsPrintItenary(Colony* colony)
+	{
+		this->visColony[colony->colonyName] = 1;
+		cout << colony->getColonyName() << "\n";
+		for (map<string, Colony*>::iterator it = colony->colonyMap.begin(); it != colony->colonyMap.end(); it++) {
+			if (this->visColony.find(it->second->colonyName) == visColony.end())
+			{
+				dfsPrintItenary(it->second);
+			}
+		}
+	}
+
+	//Print City Itenary
+	void printItenary(string colonyName)
+	{
+		if (colonyMap.find(colonyName) == colonyMap.end())
+		{
+			cout << "INVALID COLONY!!";
+			return;
+		}
+		visColony.clear();
+		dfsPrintItenary((colonyMap.find(colonyName)->second));
+	}
+
+	bool isreachable(Colony* colony, string dest)
+	{
+		this->visColony[colony->colonyName] = 1;
+		if (colony->getColonyName() == dest)
+		{
+			return true;
+		}
+		for (map<string, Colony*>::iterator it = colony->colonyMap.begin(); it != colony->colonyMap.end(); it++) {
+			if (this->visColony.find(it->second->colonyName) == visColony.end())
+			{
+
+				return isreachable(it->second, dest);
+			}
+		}
+		return false;
+	}
+
+	//Shortest Path between source and destination
+	void findShortestPath(Colony* colony, string dest, string result, int price, int cnt)
+	{
+		string tmpName = "";
+
+		this->visColony[colony->colonyName] = 1;
+		if (dest == colony->getColonyName())
+		{
+			result = result + "Total Flights = " + std::to_string(cnt) + " and total cost: " + std::to_string(price);
+			if (price < minPrice)
+			{
+				finalResult = result;
+			}
+			return;
+		}
+		for (map<string, Colony*>::iterator it = colony->colonyMap.begin(); it != colony->colonyMap.end(); it++) {
+
+			if (this->visColony.find(it->second->colonyName) == visColony.end())
+			{
+				for (vector<Flight*>::iterator it1 = colony->connectingColony.find(it->first)->second.begin(); it1 != colony->connectingColony.find(it->first)->second.end(); it1++)
+				{
+					result = result + colony->colonyName + " to " + it->first + " via " + (*it1)->getFlightName() + " for " + std::to_string((*it1)->getPrice()) + "\n";
+					findShortestPath(it->second, dest, result, price + (*it1)->getPrice(), cnt + 1);
+				}
+			}
+		}
+		visColony.erase(colony->colonyName);
+	}
+
+	//Shortest Path between source and destination with flights minimum Customers
+	void findShortestPathWithMinimumCustomer(Colony* colony, string dest, string result, int price, int cnt, int minimumCusomer)
+	{
+		this->visColony[colony->colonyName] = 1;
+		if (dest == colony->getColonyName())
+		{
+			result = result + "Total Flights = " + std::to_string(cnt) + " and total cost: " + std::to_string(price);
+			if (price < minPrice)
+			{
+				finalResult = result;
+			}
+			return;
+		}
+		string tmpName = "";
+
+		for (map<string, Colony*>::iterator it = colony->colonyMap.begin(); it != colony->colonyMap.end(); it++) {
+
+			if (this->visColony.find(it->second->colonyName) == visColony.end())
+			{
+				for (vector<Flight*>::iterator it1 = colony->connectingColony.find(it->first)->second.begin(); it1 != colony->connectingColony.find(it->first)->second.end(); it1++)
+				{
+					if ((*it1)->minimumCutomers >= minimumCusomer)
+					{
+						result = result + colony->colonyName + " to " + it->first + " via " + (*it1)->getFlightName() + " for " + std::to_string((*it1)->getPrice()) + "\n";
+						findShortestPathWithMinimumCustomer(it->second, dest, result, price + (*it1)->getPrice(), cnt + 1, minimumCusomer);
+					}
+				}
+			}
+		}
+		visColony.erase(colony->colonyName);
+	}
+
+	//Shortest Path between source and destination with Same Flights
+	void findShortestPathWithSameFlight(Colony* colony, string dest, string result, int price, int cnt, string flightName)
+	{
+		this->visColony[colony->colonyName] = 1;
+		if (dest == colony->getColonyName())
+		{
+			result = result + "Total Flights = " + std::to_string(cnt) + " and total cost: " + std::to_string(price);
+			if (price < minPrice)
+			{
+				finalResult = result;
+			}
+			return;
+		}
+		string tmpName = "";
+		for (map<string, Colony*>::iterator it = colony->colonyMap.begin(); it != colony->colonyMap.end(); it++) {
+
+			if (this->visColony.find(it->second->colonyName) == visColony.end())
+			{
+				for (vector<Flight*>::iterator it1 = colony->connectingColony.find(it->first)->second.begin(); it1 != colony->connectingColony.find(it->first)->second.end(); it1++)
+				{
+					if ((*it1)->flightName == flightName)
+					{
+						result = result + colony->colonyName + " to " + it->first + " via " + (*it1)->getFlightName() + " for " + std::to_string((*it1)->getPrice()) + "\n";
+						findShortestPathWithSameFlight(it->second, dest, result, price + (*it1)->getPrice(), cnt + 1, flightName);
+					}
+				}
+			}
+		}
+		visColony.erase(colony->colonyName);
+	}
+
+	//Find Shortest Cost Path
+	void find(string src, string dest, int minimumCustomers, int flag, string flightName) {
+		string result;
+		minPrice = INT_MAX;
+		finalResult = "";
+
+		visColony.clear();
+		if (isreachable((colonyMap.find(src)->second), dest) == false)
+		{
+			cout << "NOT REACHABLE";
+			return;
+		}
+		visColony.clear();
+		if (flag == 0)
+			findShortestPath(colonyMap.find(src)->second, dest, result, 0, 0);
+		else if (flag == 1)
+			findShortestPathWithMinimumCustomer(colonyMap.find(src)->second, dest, result, 0, 0, minimumCustomers);
+		else if (flag == 2)
+			findShortestPathWithSameFlight(colonyMap.find(src)->second, dest, result, 0, 0, flightName);
+
+		if (finalResult == "")
+		{
+			cout << "Invalid Itenary";
+		}
+		else {
+			cout << finalResult << "\n";
+		}
+	}
+
+	//Add Edge Between Source and Destination
+	void addEdge(string srcColony, string destColony, string flightName, int flightprice, int minimumCustomers)
+	{
+		Colony tmp2(destColony);
+		Colony tmp1(srcColony);
+		Colony* tmpsrcColony;
+		Colony* tmpdestColony;
+		Flight* flight = new Flight(flightName, flightprice, minimumCustomers);
+
+		if (colonyMap.find(srcColony) == colonyMap.end())
+		{
+			tmpsrcColony = new Colony(srcColony);
+			colonyMap[srcColony] = tmpsrcColony;
+		}
+		else
+		{
+			tmpsrcColony = colonyMap[srcColony];
+		}
+
+		if (colonyMap.find(destColony) == colonyMap.end())
+		{
+			tmpdestColony = new Colony(destColony);
+
+			colonyMap[destColony] = tmpdestColony;
+		}
+		else
+		{
+			tmpdestColony = colonyMap[destColony];
+		}
+
+		tmpsrcColony->connectColony(flight, tmpdestColony);
+	//	tmpdestColony->connectColony(flight, tmpsrcColony);
+	}
+};
+
+int main()
+{
+	string srcName;
+	string destName;
+	string flightName;
+	int price;
+	int flag;
+	int operation;
+	int minCustomers;
+	Map colonyMap;
+	string itenaryColony;
+
+	cout << "WelCome!!";
+	cout << "Add Edge Between Colony\n";
+	int i = 0;
+	while (1)
+	{
+		i++;
+		if (i > 6) break;
+		//cout << "Add More Edges! NO=0 YES=1\n";
+		//cin >> flag;
+		//if (flag != 1) break;
+		cout << "Enter Source Colony:\n";
+		cin >> srcName;
+		cout << "Enter destination Colony:\n";
+		cin >> destName;
+		cout << "Enter Flight Name, Price, Customers from Colony " << srcName << "to" << destName << ":\n";
+		cin >> flightName >> price >> minCustomers;
+		colonyMap.addEdge(srcName, destName, flightName, price, minCustomers);
+	}
+
+	while (1)
+	{
+		cout << "Check More details yes=1\n";
+		cin >> flag;
+		if (flag != 1) break;
+
+		cout << "1.Check itenary\n2.Check flight Details\n3.Check flight Details with mimumCustomers\n4.PROMOTION";
+		cin >> operation;
+		if (operation == 1) {
+			cout << "Enter Colony name to check itenary\n";
+			cin >> itenaryColony;
+
+			colonyMap.printItenary(itenaryColony);
+		}
+		else if (operation == 2)
+		{
+			cin >> srcName;
+			cin >> destName;
+			colonyMap.find(srcName, destName, 0, 0, flightName);
+		}
+		else if (operation == 3)
+		{
+			cin >> srcName;
+			cin >> destName;
+			cin >> minCustomers;
+			colonyMap.find(srcName, destName, minCustomers, 1, flightName);
+		}
+		else if (operation == 4)
+		{
+			cin >> srcName;
+			cin >> destName;
+			cin >> flightName;
+			colonyMap.find(srcName, destName, minCustomers, 2, flightName);
+		}
+		else
+			cout << "Invalid operation\n";
+	}
+	return 0;
+}
