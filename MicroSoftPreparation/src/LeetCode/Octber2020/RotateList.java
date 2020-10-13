@@ -4,22 +4,6 @@ import java.util.Scanner;
 
 // https://leetcode.com/explore/challenge/card/october-leetcoding-challenge/559/week-1-october-1st-october-7th/3486/
 
-class ListNode
-{
-	int val;
-	ListNode next;
-	ListNode(){}
-	ListNode(int val)
-	{
-		this.val = val;
-	}
-	ListNode(int val, ListNode next)
-	{
-		this.val = val;
-		this.next = next;
-	}
-}
-
 public class RotateList 
 {
 	public static void main(String[] args)
@@ -108,7 +92,7 @@ public class RotateList
 		return len;
 	}
 
-	private static void PrintList(ListNode head)
+	public static void PrintList(ListNode head)
 	{
 		if(head != null)
 		{
@@ -117,7 +101,7 @@ public class RotateList
 		}
 	}
 
-	private static ListNode InsertNodeAtEndInList(ListNode head, int k) 
+	public static ListNode InsertNodeAtEndInList(ListNode head, int k) 
 	{
 		if(head == null)
 		{
