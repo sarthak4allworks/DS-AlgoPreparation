@@ -1,6 +1,4 @@
 package LeetCode.Octber2020;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 // https://leetcode.com/explore/challenge/card/october-leetcoding-challenge/560/week-2-october-8th-october-14th/3494/
