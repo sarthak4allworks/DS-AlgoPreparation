@@ -14,7 +14,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="keywords" content="Archived, old, closed, suspended, shutdown, closed"/>
     <link rel="shortcut icon" href="/eclipse.org-common/themes/solstice/public/images/favicon.ico"/>
     <title>Archived Projects | The Eclipse Foundation</title>
-    <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/quicksilver.min.css?v0.125"/>
+    <link rel="stylesheet" href="/eclipse.org-common/themes/solstice/public/stylesheets/quicksilver.min.css?v0.130"/>
 <meta name="description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 375 open source projects, including runtimes, tools and frameworks."/>
 <meta property="og:description" content="The Eclipse Foundation - home to a global community, the Eclipse IDE, Jakarta EE and over 375 open source projects, including runtimes, tools and frameworks."/>
 <meta property="og:image" content="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-200x200.png"/>
@@ -300,7 +300,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js?var=0.0.125"></script>
+<script src="/eclipse.org-common/themes/solstice/public/javascript/main.min.js?var=0.0.130"></script>
 
 </body>
 </html>
